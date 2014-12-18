@@ -71,31 +71,53 @@ in <code>pwnlib</code>. These are:</p>
 <h1>
 <a id="documentation" class="anchor" href="#documentation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Documentation</h1>
 
-<p>Our documentation is available at <a href="http://pwntools.readthedocs.org/">http://pwntools.readthedocs.org/</a></p>
+<p>Our documentation is available at <a href="http://docs.pwntools.com">http://docs.pwntools.com</a></p>
 
 <p>To get you started, we've provided some example solutions for past CTF challenges in our <a href="https://github.com/Gallopsled/pwntools-write-ups">write-ups repository</a>.</p>
 
 <h1>
 <a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h1>
 
+<p>pwntools is best supported on Ubuntu 12.04 and 14.04, but most functionality should work on any Posix-like distribution (Debian, Arch, FreeBSD, OSX, etc.).</p>
+
+<h2>
+<a id="prerequisites" class="anchor" href="#prerequisites" aria-hidden="true"><span class="octicon octicon-link"></span></a>Prerequisites</h2>
+
+<p>In order to get the most out of <code>pwntools</code>, you should have the following system libraries installed.</p>
+
+<ul>
+<li>binutils for your target architecture (<a href="https://launchpad.net/%7Epwntools/+archive/ubuntu/binutils">Ubuntu</a>)</li>
+<li>
+<a href="http://www.capstone-engine.org">libcapstone 2.1</a> (Ubuntu <a href="http://www.capstone-engine.org/download/2.1.2/capstone-2.1.2_i386.deb">i386</a> <a href="http://www.capstone-engine.org/download/2.1.2/capstone-2.1.2_amd64.deb">amd64</a>)</li>
+<li>Python development headers (<code>python-dev</code>)</li>
+</ul>
+
 <h2>
 <a id="released-version" class="anchor" href="#released-version" aria-hidden="true"><span class="octicon octicon-link"></span></a>Released Version</h2>
 
-<p>Pwntools is available as a pip package. It reqiures Python 2.7, and one of its dependences requires the Python headers.</p>
+<p>Pwntools is available as a <code>pip</code> packag for easy installation.</p>
 
-<div class="highlight highlight-sh"><pre>apt-get install python python-dev</pre></div>
-
-<div class="highlight highlight-sh"><pre>pip2 install pwntools</pre></div>
+<div class="highlight highlight-sh"><pre>apt-get install python2.7 python2.7-dev python-pip
+pip install pwntools</pre></div>
 
 <h2>
 <a id="latest-version" class="anchor" href="#latest-version" aria-hidden="true"><span class="octicon octicon-link"></span></a>Latest Version</h2>
 
-<p>Alternatively if you prefer to use the latest version from the repository:</p>
+<p>You can also use the version from github.</p>
 
 <div class="highlight highlight-sh"><pre>git clone https://github.com/Gallopsled/pwntools
 <span class="pl-s3">cd</span> pwntools
+python setup.py install</pre></div>
+
+<h1>
+<a id="contribution" class="anchor" href="#contribution" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contribution</h1>
+
+<p>If you'd like to hack on pwntools, this is how we set things up:</p>
+
+<div class="highlight highlight-sh"><pre>git clone https://github.com/Gallopsled/pwntools
+PWN=<span class="pl-s1"><span class="pl-pds">$(</span>realpath pwntools<span class="pl-pds">)</span></span>
+<span class="pl-s3">cd</span> <span class="pl-vo">$PWN</span>
 pip2 install -r requirements.txt
-PWN=<span class="pl-s1"><span class="pl-pds">$(</span>realpath .<span class="pl-pds">)</span></span>
 <span class="pl-s">export</span> PATH=<span class="pl-s1"><span class="pl-pds">"</span><span class="pl-vo">$PWN</span>/bin:<span class="pl-vo">$PATH</span><span class="pl-pds">"</span></span>
 <span class="pl-s">export</span> PYTHONPATH=<span class="pl-s1"><span class="pl-pds">"</span><span class="pl-vo">$PWN</span>:<span class="pl-vo">$PYTHONPATH</span><span class="pl-pds">"</span></span></pre></div>
 

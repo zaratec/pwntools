@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -32,77 +32,71 @@
 
         <section id="main_content">
           <h1>
-<a id="pwntools---ctf-toolkit" class="anchor" href="#pwntools---ctf-toolkit" aria-hidden="true"><span class="octicon octicon-link"></span></a>pwntools - CTF toolkit</h1>
+<a id="pwntools---ctf-toolkit" class="anchor" href="#pwntools---ctf-toolkit" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>pwntools - CTF toolkit</h1>
 
-<p><a href="https://pwntools.readthedocs.org/en/latest"><img src="https://readthedocs.org/projects/pwntools/badge/" alt="Docs latest"></a>
+<p><img src="docs/source/logo.png?raw=true" alt="pwntools logo">
+<a href="https://pwntools.readthedocs.org/"><img src="https://readthedocs.org/projects/pwntools/badge/?version=latest" alt="Docs latest"></a>
 <a href="https://pwntools.readthedocs.org/en/2.2.0"><img src="https://readthedocs.org/projects/pwntools/badge/?version=2.2.0" alt="Docs 2.2.0"></a>
 <a href="https://pypi.python.org/pypi/pwntools/"><img src="https://img.shields.io/pypi/v/pwntools.svg?style=flat" alt="PyPI"></a>
 <a href="https://www.gittip.com/gallopsled/"><img src="https://img.shields.io/gittip/gallopsled.svg?style=flat" alt="Gittip"></a>
-<a href="https://travis-ci.org/Gallopsled/pwntools"><img src="https://travis-ci.org/Gallopsled/pwntools.svg" alt="Travis"></a>
-<a href="https://twitter.com/Gallopsled"><img src="https://img.shields.io/badge/twitter-Gallopsled-4099FF.svg?style=flat" alt="Twitter"></a></p>
+<a href="https://travis-ci.org/pwntools/pwntools"><img src="https://travis-ci.org/Gallopsled/pwntools.svg?branch=master" alt="Travis"></a>
+<a href="https://twitter.com/pwntools"><img src="https://img.shields.io/badge/twitter-pwntools-4099FF.svg?style=flat" alt="Twitter"></a>
+<a href="http://choosealicense.com/licenses/mit/"><img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat" alt="MIT License"></a></p>
 
-<p>This is the CTF framework used by Gallopsled in every CTF.</p>
+<p>pwntools is a CTF framework and exploit development library. Written in Python, it is designed for rapid prototyping and development, and intended to make exploit writing as simple as possible.</p>
 
-<div class="highlight highlight-python"><pre><span class="pl-k">from</span> pwn <span class="pl-k">import</span> <span class="pl-k">*</span>
-context(<span class="pl-vpf">arch</span> <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">'</span>i386<span class="pl-pds">'</span></span>, <span class="pl-vpf">os</span> <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">'</span>linux<span class="pl-pds">'</span></span>)
+<div class="highlight highlight-source-python"><pre><span class="pl-k">from</span> pwn <span class="pl-k">import</span> <span class="pl-k">*</span>
+context(<span class="pl-v">arch</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>i386<span class="pl-pds">'</span></span>, <span class="pl-v">os</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>linux<span class="pl-pds">'</span></span>)
 
-r <span class="pl-k">=</span> remote(<span class="pl-s1"><span class="pl-pds">'</span>exploitme.example.com<span class="pl-pds">'</span></span>, <span class="pl-c1">31337</span>)
+r <span class="pl-k">=</span> remote(<span class="pl-s"><span class="pl-pds">'</span>exploitme.example.com<span class="pl-pds">'</span></span>, <span class="pl-c1">31337</span>)
 <span class="pl-c"># EXPLOIT CODE GOES HERE</span>
 r.send(asm(shellcraft.sh()))
 r.interactive()</pre></div>
 
-<p>However we have made command-line frontends for some of the functionality
-in <code>pwnlib</code>. These are:</p>
+<h1>
+<a id="try-it-now" class="anchor" href="#try-it-now" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Try It Now!</h1>
 
-<ul>
-<li>
-<code>asm</code>/<code>disasm</code>: Small wrapper for various assemblers.</li>
-<li>
-<code>constgrep</code>: Tool for finding constants defined in header files.</li>
-<li>
-<code>cyclic</code>: De Bruijn sequence generator and lookup tool.</li>
-<li>
-<code>hex</code>/<code>unhex</code>: Command line tools for doing common hexing/unhexing operations.</li>
-<li>
-<code>shellcraft</code>: Frontend to our shellcode.</li>
-<li>
-<code>phd</code>: Replacement for <code>hexdump</code> with colors.</li>
-</ul>
+<p>You can now do a live demo of Pwntools, <a href="http://demo.pwntools.com">right in your browser</a>.  Alternately, you can SSH to the same host, and log in as user <code>zerocool</code> with <a href="https://gist.githubusercontent.com/zachriggle/efa2e0080ae6de2e8344/raw/4b503e9db54f009d97477d03d4ba5678471f8ff0/id_rsa">this private key</a> (password <code>i_promise_not_to_be_evil</code>).</p>
+
+<p>It will drop you into a clean, Docker-ized container.  There is nothing of value on the VPS, so please don't be evil.</p>
 
 <h1>
-<a id="documentation" class="anchor" href="#documentation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Documentation</h1>
+<a id="documentation" class="anchor" href="#documentation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Documentation</h1>
 
-<p>Our documentation is available at <a href="https://pwntools.readthedocs.org/en/latest/">pwntools.readthedocs.org</a></p>
+<p>Our documentation is available at <a href="https://pwntools.readthedocs.org/">pwntools.readthedocs.org</a></p>
 
-<p>To get you started, we've provided some example solutions for past CTF challenges in our <a href="https://github.com/Gallopsled/pwntools-write-ups">write-ups repository</a>.</p>
+<p>To get you started, we've provided some example solutions for past CTF challenges in our <a href="https://github.com/pwntools/examples">write-ups repository</a>.</p>
 
 <h1>
-<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h1>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h1>
 
-<p>pwntools is best supported on Ubuntu 12.04 and 14.04, but most functionality should work on any Posix-like distribution (Debian, Arch, FreeBSD, OSX, etc.).</p>
+<p>pwntools is best supported on 64-bit Ubuntu 12.04 and 14.04, but most functionality should work on any Posix-like distribution (Debian, Arch, FreeBSD, OSX, etc.).  Python 2.7 is required.</p>
 
 <p>Most of the functionality of pwntools is self-contained and Python-only.  You should be able to get running quickly with</p>
 
-<div class="highlight highlight-sh"><pre>pip install pwntools</pre></div>
+<div class="highlight highlight-source-shell"><pre>apt-get update
+apt-get install python2.7 python-pip python-dev git libssl-dev
+pip install --upgrade git+https://github.com/Gallopsled/pwntools.git</pre></div>
 
-<p>However, some of the features (ROP generation and assembling/disassembling foreign architectures) require non-Python dependencies.  For more information, see the <a href="https://pwntools.readthedocs.org/en/latest/install.html">complete installation instructions here</a>.</p>
+<p>However, some of the features (assembling/disassembling foreign architectures) require non-Python dependencies.  For more information, see the <a href="https://pwntools.readthedocs.org/install.html">complete installation instructions here</a>.</p>
 
 <h1>
-<a id="contribution" class="anchor" href="#contribution" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contribution</h1>
+<a id="contribution" class="anchor" href="#contribution" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contribution</h1>
 
 <p>See <a href="CONTRIBUTING.md">CONTRIBUTING.md</a></p>
 
 <h1>
-<a id="contact" class="anchor" href="#contact" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contact</h1>
+<a id="contact" class="anchor" href="#contact" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contact</h1>
 
-<p>If you have any questions not worthy of a <a href="https://github.com/Gallopsled/pwntools/issues">bug report</a>, feel free to join us
-at <code>#gallopsled</code> on Freenode and ask away.
-Click <a href="https://kiwiirc.com/client/irc.freenode.net/gallopsled">here</a> to connect.</p>
+<p>If you have any questions not worthy of a <a href="https://github.com/Gallopsled/pwntools/issues">bug report</a>, feel free to ping us
+at <code>#pwntools</code> on Freenode and ask away.
+Click <a href="https://kiwiirc.com/client/irc.freenode.net/pwntools">here</a> to connect.
+There is also a <a href="https://groups.google.com/forum/#!forum/pwntools-users">mailing list</a> for higher latency discussion.</p>
         </section>
 
         <footer>
           Pwntools is maintained by <a href="https://github.com/Gallopsled">Gallopsled</a><br>
-          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+          This page was generated by <a href="https://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
         </footer>
 
         

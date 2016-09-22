@@ -68,8 +68,13 @@ if not os.path.exists(PythonH):
     sys.exit(-1)
 
 # Convert README.md to reStructuredText for PyPI
+# Jk b/c Bash on Ubuntu on Windows doesn't have the timer_create function
+#   implemented
+# This just circumvents that issue by having a preconverted README.rst
+#   so we don't have to deal w/ pandoc
+# Worked fine for me, so should be an okay fix until timer_create is added
 long_description = ''
-try:
+'''try:
     import pypandoc
     try:
         pypandoc.get_pandoc_path()
@@ -77,8 +82,10 @@ try:
         pypandoc.download_pandoc()
     long_description = pypandoc.convert_file('README.md', 'rst')
 except ImportError:
-    pass
-
+    pass'''
+fin = open('README.rst', 'r')
+long_description = fin.read()
+fin.close()
 
 setup(
     name                 = 'pwntools',
